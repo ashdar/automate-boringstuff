@@ -11,6 +11,9 @@ I am starting this repository becuase I like revision control systems and I want
 
 I'm walking into this a little bit blind: I have no idea how the course is organized or how I will organize the source in this repository.
 
+
+[https:\\automatetheboringstuff.com](https:\\automatetheboringstuff.com)
+
 -d
 
 
