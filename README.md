@@ -14,6 +14,25 @@ I'm walking into this a little bit blind: I have no idea how the course is organ
 
 [https:\\automatetheboringstuff.com](https:\\automatetheboringstuff.com)
 
--d
+
+What am I doing differently than the class?
+* I have been reading the textbook after I watch the videos on Udemy. That's probably backwards, but going back and reviewing the material is ++ useful for knowledge retention, I'm told.
+* I have set up Visual Studio Code to edit python files. It is easy to do, just install the extension. I like to type in the (short) programs becuase I feel that helps build muscle memory for how things are supposed "to look". VS Code's syntax highlighter quickly points out my typos.
+* I have set up Windows Terminal (which is still in preview) so that I can use it for my python shell.
+* I am tracking my progress in a small Jira project. Trello and MS-Planner seem to "small" for this. Jira might be overkill.
+
+
+What Big Questions do I have?
+* I am going to want to see how database connectivity works. I presume that I need to install a package via pip.
+* I am curious to see how python performs when compared to PowerShell. I expect that PowerShell is more memory- and cpu-hungry than python.
+* I like using Pester with my PowerShell programs (as well as using Pester for infrastructure validation, checking for known issues in databases and so forth).
+
+I can't help but compare Python to PowerShell. What (initial) observations do I have about Python? 
+* This class is an introductory class, so it is side-stepping object-oriented concepts. Which is OK becuase I have only toyed with classes in PowerShell. I do have "do more stuff with classes in PowerShell" on my list of want-to-do items.
+* Python seems extremely barebones and stripped-down. I presume that most of the magic is in third-party packages/libraries/modules.
+* I know that PowerShell has lifted numerous things from Python (and other languages). 
+* While PowerShell relies on .Net for data types, classes and member functions, must of this is built into Python. (I'm thinking of things like .ToUpper(), .ToLower() and so forth.). When comparing to the .Net string class, Python's string class has a similar, but different set of functions. 
+* PowerShell has a lot of support for documentation and parameter validation.
+
 
 
