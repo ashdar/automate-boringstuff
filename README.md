@@ -20,6 +20,7 @@ What am I doing differently than the class?
 * I have set up Visual Studio Code to edit python files. It is easy to do, just install the extension. I like to type in the (short) programs becuase I feel that helps build muscle memory for how things are supposed "to look". VS Code's syntax highlighter quickly points out my typos.
 * I have set up Windows Terminal (which is still in preview) so that I can use it for my python shell.
 * I am tracking my progress in a small Jira project. Trello and MS-Planner seem to "small" for this. Jira might be overkill.
+* Must of the introductory stuff is, well, introductory. I know how a boolean data type works, I have a grasp of string, integer and float data types, I understand conditional branching, I understand immutability, passing by reference vs. passing by value and so forth. I am watching the videos at 2x normal speed and slowing down when something more 'pythony' needs reviewing.
 
 
 What Big Questions do I have?
@@ -33,6 +34,8 @@ I can't help but compare Python to PowerShell. What (initial) observations do I 
 * I know that PowerShell has lifted numerous things from Python (and other languages). 
 * While PowerShell relies on .Net for data types, classes and member functions, must of this is built into Python. (I'm thinking of things like .ToUpper(), .ToLower() and so forth.). When comparing to the .Net string class, Python's string class has a similar, but different set of functions. 
 * PowerShell has a lot of support for documentation and parameter validation.
+* Lists and hashes seem to be the crux of the whole thing. 
+* Hash 'output' looks suspiciously like a chunk of JSON.
 
 
 
