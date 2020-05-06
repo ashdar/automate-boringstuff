@@ -36,6 +36,6 @@ I can't help but compare Python to PowerShell. What (initial) observations do I 
 * PowerShell has a lot of support for documentation and parameter validation.
 * Lists and hashes seem to be the crux of the whole thing. 
 * Hash 'output' looks suspiciously like a chunk of JSON.
-
+* The "indentation determines code blocks/program flow" seems ++ wierd to me. As long as my code editor has a good formatter, I do not think this matters very much anymore. Does anyone manually format code these days?
 
 
