@@ -21,6 +21,7 @@ What am I doing differently than the class?
 * I have set up Windows Terminal (which is still in preview) so that I can use it for my python shell.
 * I am tracking my progress in a small Jira project. Trello and MS-Planner seem to "small" for this. Jira might be overkill.
 * Must of the introductory stuff is, well, introductory. I know how a boolean data type works, I have a grasp of string, integer and float data types, I understand conditional branching, I understand immutability, passing by reference vs. passing by value and so forth. I am watching the videos at 2x normal speed and slowing down when something more 'pythony' needs reviewing.
+* It is almost as if there are two paths through the course. You can read the book. You can watch the videos. There isn't quite a 1:1 correspondance between the book's chapters and the seperate video sections. This is why my project has folders for Chapters (from the book) and Sections (from the videos on Udemy's site). When I fiddle with code while watching the video, I tend to put the resulthing Python files in the 'Section' folders. Similarly, I use the 'chapter' folders while working on examples or practice programs from the book.
 
 
 What Big Questions do I have?
