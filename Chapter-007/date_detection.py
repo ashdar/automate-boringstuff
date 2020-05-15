@@ -64,9 +64,72 @@ def ParseDate(StringToParse):
     dd,mm,yyyy = mo.groups()
     return(dd, mm, yyyy)
 
+def IsLeapYear(yyyy):
+    """Takes a string with a four-digit year and checks to see if it is a leap year
+    Returns boolean"""
 
+    IsLeap = False
+    # Leap years are every year evenly divisible by 4, 
+    # except for years evenly divisible by 100, 
+    # unless the year is also evenly divisible by 400. 
+    # 
+    # IOW, per Wikipedia:
+    # The years 1600, 2000 and 2400 are leap years, 
+    # while 1700, 1800, 1900, 2100, 2200 and 2300 are not leap years.
+
+
+    if (int(yyyy) % 4 == 0):
+        # if (int(yyyy) % 100 != 0):
+        #     if (int(yyyy) % 400 == 0):
+        IsLeap = True
+
+    return(IsLeap)
+
+def IsValidDate(dd,mm,yyyy):
+
+    IsValid = False
+    
+    # April, June, September, and November have 30 days, 
+    #
+    # February has 28 days (plus leap year issues), 
+    # 
+    # and the rest of the months have 31 days. 
+    if  (mm in ['04','06','09','11']):
+        if (int(dd) <= 30):
+            IsValid = True
+    elif (mm in ['02']):
+        # FIXME: leap years
+        if (int(dd) <= 28):
+            IsValid = True
+    else:
+        if (int(dd) <= 31):
+            IsValid = True
+
+    return(IsValid)
 
 ### Main #########
+
+testCasesForGoodLeapYears = [1600, 2000, 2016, 2020, 2400]
+testCasesForBadLeapYears = [1700, 1800, 1900, 2019, 2100, 2200, 2300]
+
+print('Test #1: Leap Years')
+for i in testCasesForGoodLeapYears:
+# for i in range(1995,2015):
+    Is = IsLeapYear(str(i))
+    if (Is):
+        print('{0} is a leap year.'.format(i))
+    else:
+        print('{0} is not a leap year.'.format(i))
+
+print('Test #2: Not leap years')
+for i in testCasesForBadLeapYears:
+# for i in range(1995,2015):
+    Is = IsLeapYear(str(i))
+    if (Is == False):
+        print('{0} is a leap year.'.format(i))
+    else:
+        print('{0} is not a leap year.'.format(i))
+
 
 testCasesForBadDates = [
     '31/02/2020','31/04/2021'
@@ -84,8 +147,9 @@ testCasesForGoodLeapYearDates = [
     ]
 
 
-for tc in testCasesForBadDates:
-    day, month, year = ParseDate(tc)
-    print (month, day, year)
+print('Test #3')
+# for tc in testCasesForBadDates:
+#     day, month, year = ParseDate(tc)
+#     print (month, day, year)
 
     # is that a valid date? 
