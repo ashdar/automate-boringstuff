@@ -79,9 +79,15 @@ def IsLeapYear(yyyy):
 
 
     if (int(yyyy) % 4 == 0):
-        # if (int(yyyy) % 100 != 0):
         #     if (int(yyyy) % 400 == 0):
         IsLeap = True
+
+        if (int(yyyy) % 100 == 0):
+            IsLeap = False
+
+        if (int(yyyy) % 400 == 0):
+            IsLeap = True
+
 
     return(IsLeap)
 
@@ -98,9 +104,13 @@ def IsValidDate(dd,mm,yyyy):
         if (int(dd) <= 30):
             IsValid = True
     elif (mm in ['02']):
-        # FIXME: leap years
-        if (int(dd) <= 28):
-            IsValid = True
+        # leap years get 29 days in '02'
+        if (IsLeapYear(yyyy)):
+            if (int(dd) <= 29):
+                IsValid = True
+        else: 
+            if (int(dd) <= 28):
+                IsValid = True
     else:
         if (int(dd) <= 31):
             IsValid = True
@@ -109,31 +119,46 @@ def IsValidDate(dd,mm,yyyy):
 
 ### Main #########
 
-testCasesForGoodLeapYears = [1600, 2000, 2016, 2020, 2400]
-testCasesForBadLeapYears = [1700, 1800, 1900, 2019, 2100, 2200, 2300]
-
-print('Test #1: Leap Years')
-for i in testCasesForGoodLeapYears:
-# for i in range(1995,2015):
-    Is = IsLeapYear(str(i))
-    if (Is):
-        print('{0} is a leap year.'.format(i))
-    else:
-        print('{0} is not a leap year.'.format(i))
-
-print('Test #2: Not leap years')
-for i in testCasesForBadLeapYears:
-# for i in range(1995,2015):
-    Is = IsLeapYear(str(i))
-    if (Is == False):
-        print('{0} is a leap year.'.format(i))
-    else:
-        print('{0} is not a leap year.'.format(i))
-
-
-testCasesForBadDates = [
-    '31/02/2020','31/04/2021'
+testCasesForLeapYears = [
+    1600, 2000, 2400
+    , 2016,2020
     ]
+testCasesForNotLeapYears = [
+    1700, 1800, 1900, 2100, 2200, 2300
+    , 2017, 2018, 2019
+    ]
+
+# print('Test #0: Leap Years')
+
+# i = 2019
+# Is = IsLeapYear(str(i))
+# if (Is):
+#     print('{0} is a leap year.'.format(i))
+# else:
+#     print('{0} is not a leap year.'.format(i))
+
+# print('Test #1: Leap Years')
+# for i in testCasesForLeapYears:
+# # for i in range(1995,2015):
+#     Is = IsLeapYear(str(i))
+#     if (Is):
+#         print('Test OK:{0} is a leap year.'.format(i))
+#     else:
+#         print('Test FAIL:{0} is not a leap year.'.format(i))
+
+# print('Test #2: Not leap years')
+# for i in testCasesForNotLeapYears:
+# # for i in range(1995,2015):
+#     Is = IsLeapYear(str(i))
+#     if (Is == False):
+#         print('Test OK:{0} is not a leap year.'.format(i))
+#     else:
+#         print('Test FAIL:{0} is a leap year.'.format(i))
+
+
+# testCasesForBadDates = [
+#     '31/02/2020','31/04/2021'
+#     ]
 
 testCasesForGoodDates = [
     '01/01/2020','29/02/2020'
@@ -147,9 +172,47 @@ testCasesForGoodLeapYearDates = [
     ]
 
 
-print('Test #3')
-# for tc in testCasesForBadDates:
-#     day, month, year = ParseDate(tc)
-#     print (month, day, year)
+# print('Test #3: testCasesForBadDates: Not a valid date')
+# for i in testCasesForBadDates:
+#     day, month, year = ParseDate(i)
+#     # print (month, day, year)
+#     Is = IsValidDate(day, month, year)
+#     if (Is == False):
+#         print('Test OK:{0} is not a valid date.'.format(i))
+#     else:
+#         print('Test FAIL:{0} is a valid date.'.format(i))
 
     # is that a valid date? 
+
+import unittest
+
+# FIXME: I am in the middle of trying to convert this to test cases/clases
+
+
+class TestStringMethods(unittest.TestCase):
+
+    def test_ForBadDates(self):
+        testCasesForBadDates = [
+            '31/02/2020','31/04/2021'
+            ,'13/13/2020'
+            ]
+
+        for i in testCasesForBadDates:
+            with self.subTest(i=i):
+                day, month, year = ParseDate(i)
+                Is = IsValidDate(day, month, year)
+                self.assertFalse(Is, "'{0}' is not a valid date".format(i))
+
+    # def test_isupper(self):
+    #     self.assertTrue('FOO'.isupper())
+    #     self.assertFalse('Foo'.isupper())
+
+    # def test_split(self):
+    #     s = 'hello world'
+    #     self.assertEqual(s.split(), ['hello', 'world'])
+    #     # check that s.split fails when the separator is not a string
+    #     with self.assertRaises(TypeError):
+    #         s.split(2)
+
+if __name__ == '__main__':
+    unittest.main()
