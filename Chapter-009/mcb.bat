@@ -1,0 +1,1 @@
+@pyw.exe .\chapter-009\mcb.pyw %*
