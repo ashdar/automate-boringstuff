@@ -14,20 +14,39 @@ Verbose = True
 
 mcbShelf = shelve.open('.\\chapter-009\\mcb')
 
-if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
-    # Save clipboard content.
-    mcbShelf[sys.argv[2]] = pyperclip.paste()
-    print('Verbose: Keyword ' + sys.argv[2] + ' copied from clipboard to shelf')
+# remember, argv is zero based. with the first item being the name of the program
+# print(sys.argv[0])
+
+if len(sys.argv) >= 4:
+    if (Verbose):
+        print('Verbose: This program does not understand more than two arguments. Ever.')
+elif len(sys.argv) == 3:
+    if (sys.argv[1].lower() == 'save'):
+        # Save clipboard content.
+        mcbShelf[sys.argv[2]] = pyperclip.paste()
+        print('Verbose: Keyword ' + sys.argv[2] + ' copied from clipboard to shelf')
+    elif (sys.argv[1].lower() == 'delete'):
+        # Save clipboard content.
+        del mcbShelf[sys.argv[2]]
+        if (Verbose):
+            print('Verbose: Keyword ' + sys.argv[2] + ' deleted from shelf')
+    else:
+        if (Verbose):
+            print('Verbose: Two Argument Syntax error?')
+
 elif len(sys.argv) == 2:
     # TODO: List keywords and load content.
     if sys.argv[1].lower() == 'list':
         pyperclip.copy(str(list(mcbShelf.keys())))
         if (Verbose):
-            print('Verbose: List copied to clipboard')
+            print('Verbose: List copied to clipboard: ' + str(list(mcbShelf.keys())))
     elif sys.argv[1] in mcbShelf:
         pyperclip.copy(mcbShelf[sys.argv[1]])
         if (Verbose):
             print('Verbose: Keyword ' + sys.argv[1] + ' copied from shelf to clipboard')
+    else:
+        if (Verbose):
+            print('Verbose: One Argument Syntax error?')
 
 
 mcbShelf.close()
