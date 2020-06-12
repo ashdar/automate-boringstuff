@@ -1,12 +1,9 @@
 #! python3
-# backupToZip.py - Copies an entire folder and its contents into
-# a ZIP file whose filename increments.
+# selectiveCopy.py - Copies files with a certain file extension to a particular folder
 
 import shutil
 import os
 from pathlib import Path
-
-
 
 def selectiveCopy(fileExtension, 
                 sourceFolder,
