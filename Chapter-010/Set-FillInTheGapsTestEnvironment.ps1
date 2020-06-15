@@ -16,8 +16,9 @@ $FilenameTemplate = "$Prefix-0{0}.txt"
 
 if ($Clean) {
     if (Test-Path $Folder) {
-        Write-Verbose -Message "Cleaning $folder "
-        Remove-Item $folder -Recurse -whatif
+        Write-Verbose -Message "Cleaning $folder"
+        Remove-Item $folder -Recurse -force
+        Write-Verbose -Message "Cleaned $folder"
     }
     else {
         Write-Verbose -Message "Found $folder was removed"
@@ -32,7 +33,7 @@ else {
         Write-Verbose -Message "Created $folder "
     }
 
-    1..10 | ForEach-Object { Get-Random -Minimum 1 -maximum 9 } | 
+    1..3 | ForEach-Object { Get-Random -Minimum 1 -maximum 9 } | 
     ForEach-Object { Set-Content -value 'foo' -path (Join-Path -Path $Folder -ChildPath ($FilenameTemplate -f $_ )) }
     
 }
