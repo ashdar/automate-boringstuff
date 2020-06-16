@@ -29,7 +29,10 @@ I am going a bit beyond the course information by using the unittest package to 
 These things might need to wait until I have finished the course.
 
 * How does database connectivity work?
+I've jumped ahead in my studies because I am so intersted in database access and had a quick look. The basic answer seems to be "install the pyodbc module". I do miss PowerShell's easy-to-use columnar formatting. I have a tiny demo file in the .\Extras folder.
+
 * How does Python perform when compared to PowerShell for simple things like parsing CSV or JSON? I expect that PowerShell is more memory- and cpu-hungry than python.
+
 * How does one write unit tests for Python programs? I like using Pester with my PowerShell programs (as well as using Pester for infrastructure validation, checking for known issues in databases and so forth). I have already started answering this question by using the unittest package to test the programs I write as I work through the chapters.
 
 * I can't help but compare Python to PowerShell. What (initial) observations do I have about Python? 
